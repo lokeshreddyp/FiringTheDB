@@ -1,0 +1,6 @@
+framework module Pods_FiringTheDB {
+  umbrella header "Pods-FiringTheDB-umbrella.h"
+
+  export *
+  module * { export * }
+}
