@@ -9,13 +9,34 @@
 
 import UIKit
 
-class NewVC: UIViewController {
+class NewVC: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     @IBAction func backpressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+     var imagepicker:UIImagePickerController!
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage]as? UIImage {
+        imageadd.image = image
+        }
+        else {
+            print("enter a valid image")
+        }
+        imagepicker.dismiss(animated: true, completion: nil)
+    }
+
+  
+    @IBOutlet weak var imageadd: UIImageView!
+    @IBAction func imagepressed(_ sender: UIButton) {
+        
+        present(imagepicker, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagepicker = UIImagePickerController()
+        imagepicker.delegate = self
+        imagepicker.allowsEditing = true
 
         // Do any additional setup after loading the view.
     }

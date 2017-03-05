@@ -46,7 +46,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     }
     
     var posts = [Post]()
-    
+   
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -74,7 +74,9 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         }
     
     }
-    //firebase related
+    
+    
+        //firebase related
    
     
     
@@ -85,8 +87,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
 
         tableview.delegate = self
         tableview.dataSource = self
-        
-        
+               
         Dataservice.ds.REF_POSTS.observe(.value, with: { (snapshot) in
           //  print(snapshot.value)
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot]
