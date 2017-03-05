@@ -23,6 +23,7 @@
 		CF4C31D01E69F80000C5954A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4C31CF1E69F80000C5954A /* FBSDKLoginKit.framework */; };
 		CF4C31D21E6A020000C5954A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4C31D11E6A020000C5954A /* HomeViewController.swift */; };
 		CFACC5211E6C6BE000A1DFBC /* Dataservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFACC5201E6C6BE000A1DFBC /* Dataservice.swift */; };
+		CFACC5231E6C7E9800A1DFBC /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFACC5221E6C7E9800A1DFBC /* Posts.swift */; };
 		DACE28CDFADD19E155FC1B43 /* Pods_FiringTheDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBE6148382FF62E7A5D870A /* Pods_FiringTheDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		CF4C31CF1E69F80000C5954A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CF4C31D11E6A020000C5954A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CFACC5201E6C6BE000A1DFBC /* Dataservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dataservice.swift; sourceTree = "<group>"; };
+		CFACC5221E6C7E9800A1DFBC /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		F407C167CA64DB50539CC176 /* Pods-FiringTheDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiringTheDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FiringTheDBTests/Pods-FiringTheDBTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 				CF3435821E6BA1A300618D0D /* NewVC.swift */,
 				CF3435841E6BA51000618D0D /* PostcellTableViewCell.swift */,
 				CFACC5201E6C6BE000A1DFBC /* Dataservice.swift */,
+				CFACC5221E6C7E9800A1DFBC /* Posts.swift */,
 			);
 			path = FiringTheDB;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF4C31A01E69EAA400C5954A /* ViewController.swift in Sources */,
+				CFACC5231E6C7E9800A1DFBC /* Posts.swift in Sources */,
 				CF3435851E6BA51000618D0D /* PostcellTableViewCell.swift in Sources */,
 				CF3435831E6BA1A300618D0D /* NewVC.swift in Sources */,
 				CF4C319E1E69EAA400C5954A /* AppDelegate.swift in Sources */,

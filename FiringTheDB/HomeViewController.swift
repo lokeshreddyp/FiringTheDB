@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 import FBSDKCoreKit
+import Firebase
 class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
     @IBOutlet weak var firimage: UIImageView!
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
     @IBAction func didTapLogOut(_ sender: UIButton) {
         
+    
         let firebaseAuth = FIRAuth.auth()
         do {
             try firebaseAuth?.signOut()
@@ -43,17 +45,24 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
     }
     
+    var posts = [Post]()
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // to test whether we are getting data from firebase or not
+        let post = posts[indexPath.row]
+       // let caption = post.imagecap
+        print("Loki Image caption from fir is \(post.imagecap)")
         return tableview.dequeueReusableCell(withIdentifier: "HomeVC") as! PostcellTableViewCell
     }
     
@@ -71,7 +80,25 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         
         
         Dataservice.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-            print(snapshot.value)
+          //  print(snapshot.value)
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot]
+            {
+                for snap in snapshot
+                {
+                   // print("SNAP POSTS LOKI \(snap)")
+                    if let postDict = snap.value as? Dictionary<String,AnyObject> {
+                        //key gives id of post
+                        var key = snap.key
+                        let post = Post(postid: key, postdata: postDict)
+                        self.posts.append(post)
+                    //    print("Loki post key is \(key)")
+                    //    print("loki post data is \(post)")
+                    }
+                }
+            }
+            self.tableview.reloadData()
+            
+            
         })
         
         
