@@ -9,7 +9,7 @@
 import UIKit
 
 class PostcellTableViewCell: UITableViewCell {
-
+    var post:Post!
     @IBOutlet weak var firimage: UIImageView!
     
     @IBOutlet weak var firlike: UIButton!
@@ -22,5 +22,12 @@ class PostcellTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    func configurecell(post:Post) {
+        self.post = post
+        self.firimagecaption.text = post.imagecap
+        self.firlikenumber.text = "\(post.likes)"
+        
+        
+    }
 
 }

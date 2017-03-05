@@ -63,9 +63,17 @@ class HomeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         let post = posts[indexPath.row]
        // let caption = post.imagecap
         print("Loki Image caption from fir is \(post.imagecap)")
-        return tableview.dequeueReusableCell(withIdentifier: "HomeVC") as! PostcellTableViewCell
+        
+        
+        if let cell = tableview.dequeueReusableCell(withIdentifier: "HomeVC") as? PostcellTableViewCell {
+        cell.configurecell(post: post)
+            return cell
     }
+        else {
+            return PostcellTableViewCell()
+        }
     
+    }
     //firebase related
    
     
